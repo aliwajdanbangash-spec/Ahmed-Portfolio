@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ahmed Ali Wajdan — Web Developer specialising in modern, responsive, and interactive digital experiences." />
+  <meta name="keywords" content="Ahmed Ali Wajdan, Web Developer, Frontend Developer, Portfolio, HTML, CSS, JavaScript" />
+  <meta name="author" content="Ahmed Ali Wajdan" />
+  <meta property="og:title" content="Ahmed Ali Wajdan | Web Developer" />
+  <meta property="og:description" content="Web developer passionate about building modern, responsive, and interactive digital experiences." />
+  <meta property="og:type" content="website" />
+  <title>Ahmed Ali Wajdan | Web Developer</title>
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23080808'/><text y='.9em' font-size='72' x='50%' text-anchor='middle' fill='%23C8FF00' font-family='monospace' font-weight='bold'>A</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       CURSOR GLOW (desktop only)
+  ═══════════════════════════════════════════════ -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════
+       LOADING SCREEN
+  ═══════════════════════════════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-logo">A<span class="accent">.</span></span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <header class="nav-wrapper" id="navbar" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="#home" class="nav-logo" aria-label="Ahmed Ali Wajdan Home">
+        AHMED<span class="accent">.</span>DEV<span class="blink">_</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#home"         class="nav-link active" data-section="home">         <span class="nav-num">01/</span>HOME</a></li>
+        <li><a href="#projects"     class="nav-link"        data-section="projects">     <span class="nav-num">02/</span>PROJECTS</a></li>
+        <li><a href="#about"        class="nav-link"        data-section="about">        <span class="nav-num">03/</span>ABOUT</a></li>
+        <li><a href="#certificates" class="nav-link"        data-section="certificates"><span class="nav-num">04/</span>CERTIFICATES</a></li>
+        <li><a href="#contact"      class="nav-link"        data-section="contact">      <span class="nav-num">05/</span>CONTACT</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="#contact" class="nav-cta" aria-label="Let's Talk">LET'S TALK ↗</a>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <ul class="mobile-links" role="list">
+        <li><a href="#home"         class="mobile-link" data-section="home">         <span class="nav-num">01/</span>HOME</a></li>
+        <li><a href="#projects"     class="mobile-link" data-section="projects">     <span class="nav-num">02/</span>PROJECTS</a></li>
+        <li><a href="#about"        class="mobile-link" data-section="about">        <span class="nav-num">03/</span>ABOUT</a></li>
+        <li><a href="#certificates" class="mobile-link" data-section="certificates"><span class="nav-num">04/</span>CERTIFICATES</a></li>
+        <li><a href="#contact"      class="mobile-link" data-section="contact">      <span class="nav-num">05/</span>CONTACT</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta mobile-cta">LET'S TALK ↗</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════════ -->
+    <section class="hero" id="home" aria-label="Hero — Introduction">
+      <!-- Floating decoration -->
+      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+
+      <div class="hero-inner container">
+
+        <!-- LEFT -->
+        <div class="hero-content">
+          <p class="hero-label reveal-text">WEB DEVELOPER / PORTFOLIO 2026</p>
+
+          <h1 class="hero-heading">
+            <span class="line reveal-text delay-1">HEY, I'M</span>
+            <span class="line line--accent reveal-text delay-2">AHMED ALI</span>
+            <span class="line reveal-text delay-3">WAJDAN<span class="cursor-blink">_</span></span>
+          </h1>
+
+          <p class="hero-desc reveal-text delay-4">
+            I'm a web developer passionate about building modern, responsive,
+            and interactive digital experiences. I turn ideas into functional
+            websites with clean code and thoughtful design.
+          </p>
+
+          <div class="hero-btns reveal-text delay-5">
+            <a href="#projects" class="btn btn--primary">EXPLORE MY WORK ↗</a>
+            <a href="#contact"  class="btn btn--outline">CONTACT ME</a>
+          </div>
+
+          <!-- Stats row -->
+          <div class="hero-stats reveal-text delay-6">
+            <div class="stat">
+              <span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Projects Built</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num" data-count="100">0</span><span class="stat-pct">%</span>
+              <span class="stat-label">Passion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — Portrait -->
+        <div class="hero-portrait-wrapper reveal-portrait">
+          <div class="hero-portrait-frame">
+            <img src="assets/images/ahmed.jpg" alt="Ahmed Ali Wajdan — Web Developer" class="portrait-img" />
+            <div class="portrait-overlay" aria-hidden="true"></div>
+          </div>
+
+          <!-- Decorative accents -->
+          <div class="portrait-accent portrait-accent--tl" aria-hidden="true"></div>
+          <div class="portrait-accent portrait-accent--br" aria-hidden="true"></div>
+          <div class="portrait-badge" aria-label="Status badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            AVAILABLE FOR WEB PROJECTS
+          </div>
+          <p class="portrait-role">FRONTEND / WEB DEVELOPER</p>
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-label="Scroll down">
+        <span class="scroll-line" aria-hidden="true"></span>
+        <span class="scroll-text">SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         ABOUT SECTION
+    ═══════════════════════════════════════════════ -->
+    <section class="about section-pad" id="about" aria-label="About Me">
+      <div class="container">
+        <p class="section-label scroll-reveal">01 / ABOUT ME</p>
+        <h2 class="section-heading scroll-reveal delay-1">
+          BUILDING THE WEB,<br />
+          ONE IDEA AT A TIME.
+        </h2>
+
+        <div class="about-grid">
+          <!-- Left — Text -->
+          <div class="about-text scroll-reveal delay-2">
+            <p>
+              I'm <strong>Ahmed Ali Wajdan</strong>, a web developer dedicated to
+              crafting clean, performant, and visually compelling websites. I
+              believe great code and great design go hand in hand — every project
+              I build is a balance of technical precision and creative thinking.
+            </p>
+            <p>
+              My core toolkit includes <span class="text-accent">HTML</span>,
+              <span class="text-accent">CSS</span>, and
+              <span class="text-accent">JavaScript</span> — the building blocks
+              of every experience on the modern web. I manage and share my work
+              with <span class="text-accent">Git</span> and
+              <span class="text-accent">GitHub</span>, maintaining clean commit
+              histories and collaborative workflows.
+            </p>
+            <p>
+              I'm constantly learning, experimenting, and pushing my skills
+              forward — because the web never stops evolving, and neither do I.
+            </p>
+
+            <div class="about-tech-pills">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Git</span>
+              <span class="tech-pill">GitHub</span>
+            </div>
+          </div>
+
+          <!-- Right — Cards -->
+          <div class="about-cards scroll-reveal delay-3">
+            <div class="about-card hover-lift">
+              <div class="about-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3>CLEAN CODE</h3>
+              <p>Readable, maintainable code written with intention and discipline.</p>
+            </div>
+
+            <div class="about-card hover-lift">
+              <div class="about-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+              </div>
+              <h3>RESPONSIVE DESIGN</h3>
+              <p>Pixel-perfect layouts that look beautiful on every screen size.</p>
+            </div>
+
+            <div class="about-card hover-lift">
+              <div class="about-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <h3>INTERACTIVE EXPERIENCES</h3>
+              <p>Engaging animations and interactions that delight and guide users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SKILLS SECTION
+    ═══════════════════════════════════════════════ -->
+    <section class="skills section-pad" id="skills" aria-label="Technical Skills">
+      <div class="container">
+        <p class="section-label scroll-reveal">02 / TOOLKIT</p>
+        <h2 class="section-heading scroll-reveal delay-1">TECHNOLOGIES I USE.</h2>
+
+        <div class="skills-grid">
+
+          <article class="skill-card hover-lift scroll-reveal delay-1">
+            <div class="skill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 3l1.8 16.4L12 21l6.2-1.6L20 3H4z" fill="#E44D26" opacity=".15"/><path d="M4 3l1.8 16.4L12 21l6.2-1.6L20 3H4z" stroke="#E44D26" stroke-width="1.2"/><path d="M8 7h8l-.5 5.5H8.5L8.7 15l3.3.9 3.3-.9.3-3h-3.3" stroke="#E44D26" stroke-width="1.2" fill="none"/></svg>
+            </div>
+            <h3 class="skill-name">HTML5</h3>
+            <p class="skill-desc">Semantic, accessible markup that forms the backbone of every great website.</p>
+            <span class="skill-tag">#markup</span>
+          </article>
+
+          <article class="skill-card hover-lift scroll-reveal delay-2">
+            <div class="skill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 3l1.8 16.4L12 21l6.2-1.6L20 3H4z" fill="#1572B6" opacity=".15"/><path d="M4 3l1.8 16.4L12 21l6.2-1.6L20 3H4z" stroke="#1572B6" stroke-width="1.2"/><path d="M8 7h8l-.3 3.5H8.3l.2 1.9 3.5.9 3.5-.9.3-3.4h-3.3" stroke="#1572B6" stroke-width="1.2" fill="none"/></svg>
+            </div>
+            <h3 class="skill-name">CSS3</h3>
+            <p class="skill-desc">Modern styling with animations, flexbox, grid, and custom properties.</p>
+            <span class="skill-tag">#styling</span>
+          </article>
+
+          <article class="skill-card hover-lift scroll-reveal delay-3">
+            <div class="skill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#F7DF1E" opacity=".15" stroke="#F7DF1E" stroke-width="1.2"/><path d="M8 15.5c.4.8 1 1.2 1.9 1.2.9 0 1.4-.4 1.4-1.1 0-.8-.6-1-1.5-1.4l-.5-.2c-1.4-.6-2.3-1.3-2.3-2.8 0-1.4 1-2.4 2.7-2.4 1.2 0 2 .4 2.6 1.4l-1.4.9c-.3-.6-.6-.8-1.2-.8-.5 0-.9.3-.9.8 0 .6.4.8 1.2 1.1l.5.2c1.6.7 2.5 1.4 2.5 3 0 1.7-1.4 2.6-3.2 2.6-1.8 0-3-.9-3.5-2.1l1.7-.9zM16 15.4c.3.5.6.9 1.1.9.5 0 .8-.2.8-.9V9h1.9v6.5c0 1.7-1 2.5-2.4 2.5-1.3 0-2-.6-2.4-1.4l1-.8z" fill="#F7DF1E"/></svg>
+            </div>
+            <h3 class="skill-name">JavaScript</h3>
+            <p class="skill-desc">Dynamic interactivity, DOM manipulation, APIs, and modern ES6+ patterns.</p>
+            <span class="skill-tag">#logic</span>
+          </article>
+
+          <article class="skill-card hover-lift scroll-reveal delay-1">
+            <div class="skill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#C8FF00" stroke-width="1.2" fill="#C8FF00" opacity=".1"/><path d="M4 9h16M4 15h16M12 4c-2 3-3 5.5-3 8s1 5 3 8M12 4c2 3 3 5.5 3 8s-1 5-3 8" stroke="#C8FF00" stroke-width="1.2"/></svg>
+            </div>
+            <h3 class="skill-name">Responsive Web Design</h3>
+            <p class="skill-desc">Fluid layouts, media queries, and mobile-first approaches for every device.</p>
+            <span class="skill-tag">#mobile-first</span>
+          </article>
+
+          <article class="skill-card hover-lift scroll-reveal delay-2">
+            <div class="skill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="#F05033" stroke-width="1.2"/></svg>
+            </div>
+            <h3 class="skill-name">Git</h3>
+            <p class="skill-desc">Version control, branching strategies, and clean collaborative commit history.</p>
+            <span class="skill-tag">#version-control</span>
+          </article>
+
+          <article class="skill-card hover-lift scroll-reveal delay-3">
+            <div class="skill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#fff" opacity=".08" stroke="#fff" stroke-width="1.2"/><path d="M8 11.5 11 14.5l5.5-6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="skill-name">GitHub</h3>
+            <p class="skill-desc">Remote repositories, pull requests, code reviews, and open-source collaboration.</p>
+            <span class="skill-tag">#collaboration</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         PROJECTS SECTION
+    ═══════════════════════════════════════════════ -->
+    <section class="projects section-pad" id="projects" aria-label="Projects">
+      <div class="container">
+        <p class="section-label scroll-reveal">03 / SELECTED WORK</p>
+        <h2 class="section-heading scroll-reveal delay-1">
+          PROJECTS THAT<br />SPEAK FOR THEMSELVES.
+        </h2>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div class="projects-cta scroll-reveal">
+          <!-- Update href to your actual GitHub profile once configured -->
+          <a href="#" class="btn btn--outline btn--large" id="githubProfileLink" target="_blank" rel="noopener noreferrer" aria-label="Explore more projects on GitHub">
+            EXPLORE MORE ON GITHUB ↗
+          </a>
+          <p class="cta-note">⚠ Update <code>CONFIG.githubUrl</code> in script.js to activate this link.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CERTIFICATES SECTION
+    ═══════════════════════════════════════════════ -->
+    <section class="certificates section-pad" id="certificates" aria-label="Certificates">
+      <div class="container">
+        <p class="section-label scroll-reveal">04 / CERTIFICATIONS</p>
+        <h2 class="section-heading scroll-reveal delay-1">
+          ALWAYS LEARNING.<br />ALWAYS BUILDING.
+        </h2>
+
+        <div class="certs-grid" id="certsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CONTACT SECTION
+    ═══════════════════════════════════════════════ -->
+    <section class="contact section-pad" id="contact" aria-label="Contact">
+      <!-- Purple animated orb -->
+      <div class="contact-orb" aria-hidden="true"></div>
+
+      <div class="container">
+        <p class="section-label scroll-reveal">05 / CONTACT</p>
+
+        <div class="contact-grid">
+          <!-- Left — Heading + links -->
+          <div class="contact-left scroll-reveal delay-1">
+            <h2 class="contact-heading">
+              HAVE AN IDEA?<br />
+              <span class="accent-text">LET'S BUILD IT.</span>
+            </h2>
+            <p class="contact-sub">
+              Have a website idea or a project in mind? Let's discuss how we can
+              bring it to life.
+            </p>
+
+            <!-- Avatar -->
+            <div class="contact-avatar">
+              <img src="assets/images/ahmed.jpg" alt="Ahmed Ali Wajdan" class="avatar-img" />
+              <div class="avatar-info">
+                <strong>Ahmed Ali Wajdan</strong>
+                <span>Web Developer</span>
+              </div>
+            </div>
+
+            <!-- Social links — update CONFIG in script.js -->
+            <div class="contact-socials" id="contactSocials">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Right — Contact Form -->
+          <div class="contact-right scroll-reveal delay-2">
+            <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="formName">Name *</label>
+                  <input type="text" id="formName" name="name" placeholder="Your name" autocomplete="name" required />
+                  <span class="field-error" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="formEmail">Email *</label>
+                  <input type="email" id="formEmail" name="email" placeholder="your@email.com" autocomplete="email" required />
+                  <span class="field-error" aria-live="polite"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="formSubject">Subject</label>
+                <input type="text" id="formSubject" name="subject" placeholder="Project idea, collaboration, etc." />
+              </div>
+              <div class="form-group">
+                <label for="formMessage">Message *</label>
+                <textarea id="formMessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" id="formSubmit">
+                <span class="btn-text">SEND MESSAGE ↗</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
+              <div class="direct-contact-note" style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-sec); text-align: center;">
+                Prefer instant messaging? Reach out directly on 
+                <a href="https://wa.me/923139764213" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline; margin: 0 4px;">WhatsApp (03139764213)</a>
+                or email 
+                <a href="mailto:aliwajdanbangash@gmail.com" style="color: var(--accent); text-decoration: underline; margin: 0 4px;">aliwajdanbangash@gmail.com</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#home" class="footer-logo" aria-label="Ahmed Ali Wajdan Home">
+          AHMED<span class="accent">.</span>DEV<span class="blink">_</span>
+        </a>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">HOME</a>
+          <a href="#projects">PROJECTS</a>
+          <a href="#about">ABOUT</a>
+          <a href="#certificates">CERTIFICATES</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+
+        <div class="footer-socials" id="footerSocials">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="footerYear"></span> AHMED ALI WAJDAN. ALL RIGHTS RESERVED.</span>
+        <span class="footer-tag">DESIGNED WITH PURPOSE.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════
+       CERTIFICATE MODAL
+  ═══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="certModal" role="dialog" aria-modal="true" aria-label="Certificate viewer" tabindex="-1">
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose" aria-label="Close certificate viewer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-img-wrap">
+        <img src="" alt="" id="modalImg" class="modal-img" />
+        <div class="modal-cert-placeholder" id="modalPlaceholder" aria-hidden="true">
+          <svg viewBox="0 0 80 60" fill="none"><rect x="4" y="4" width="72" height="52" rx="4" stroke="#FFD60A" stroke-width="2"/><circle cx="40" cy="22" r="10" stroke="#FFD60A" stroke-width="2"/><path d="M20 48c0-11 40-11 40 0" stroke="#FFD60A" stroke-width="2"/></svg>
+        </div>
+      </div>
+      <div class="modal-info">
+        <h3 id="modalTitle" class="modal-cert-title"></h3>
+        <p id="modalOrg" class="modal-cert-org"></p>
+        <p id="modalDate" class="modal-cert-date"></p>
+        <a href="#" id="modalLink" class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="display:none;">VIEW CERTIFICATE ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
