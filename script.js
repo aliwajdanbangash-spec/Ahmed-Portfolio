@@ -224,7 +224,7 @@ const CONFIG = {
 ══════════════════════════════════════════════════════════════ */
 (function initCursor() {
   const glow = document.getElementById('cursorGlow');
-  if (!glow || window.matchMedia('(hover: none)').matches) return;
+  if (!glow || window.matchMedia('(hover: none), (max-width: 900px)').matches) return;
 
   let mouseX = -500, mouseY = -500;
   let currentX = -500, currentY = -500;
@@ -294,7 +294,7 @@ const CONFIG = {
     hamburger.setAttribute('aria-expanded', String(!open));
     hamburger.classList.toggle('open', !open);
     mobileMenu?.classList.toggle('open', !open);
-    document.body.style.overflow = !open ? 'hidden' : '';
+    document.body.classList.toggle('nav-open', !open);
   });
 
   /* Close mobile menu on link click */
@@ -306,7 +306,7 @@ const CONFIG = {
     hamburger?.setAttribute('aria-expanded', 'false');
     hamburger?.classList.remove('open');
     mobileMenu?.classList.remove('open');
-    document.body.style.overflow = '';
+    document.body.classList.remove('nav-open');
   }
 
   /* Close mobile menu on Escape */
