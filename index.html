@@ -4,30 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#080808" />
-  <meta name="description" content="Ahmed Ali Wajdan - Web Developer specialising in modern, responsive, and interactive digital experiences." />
-  <meta name="keywords" content="Ahmed Ali Wajdan, Web Developer, Frontend Developer, Portfolio, HTML, CSS, JavaScript" />
+  <meta name="description" content="Ahmed Ali Wajdan — Web Developer specialising in modern, responsive, and interactive digital experiences. Portfolio featuring projects, certifications, and contact information." />
+  <meta name="keywords" content="Ahmed Ali Wajdan, Web Developer, Frontend Developer, Portfolio, HTML, CSS, JavaScript, Responsive Design" />
   <meta name="author" content="Ahmed Ali Wajdan" />
   <meta property="og:title" content="Ahmed Ali Wajdan | Web Developer" />
-  <meta property="og:description" content="Web developer passionate about building modern, responsive, and interactive digital experiences." />
+  <meta property="og:description" content="Web developer passionate about building modern, responsive, and interactive digital experiences. View my portfolio, projects, and certifications." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/ahmed.jpg" />
+  <meta property="og:url" content="https://github.com/aliwajdanbangash-spec" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ahmed Ali Wajdan | Web Developer" />
+  <meta name="twitter:description" content="Web developer passionate about building modern, responsive, and interactive digital experiences." />
+  <meta name="twitter:image" content="assets/images/ahmed.jpg" />
+  
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmed Ali Wajdan",
+    "jobTitle": "Web Developer",
+    "url": "https://github.com/aliwajdanbangash-spec",
+    "image": "assets/images/ahmed.jpg",
+    "sameAs": [
+      "https://github.com/aliwajdanbangash-spec",
+      "https://instagram.com/ahmed_ali_wajdan"
+    ],
+    "knowsAbout": ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Frontend Development"]
+  }
+  </script>
+  
   <title>Ahmed Ali Wajdan | Web Developer</title>
 
-  <!-- Favicon placeholder -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23080808'/><text y='.9em' font-size='72' x='50%' text-anchor='middle' fill='%23C8FF00' font-family='monospace' font-weight='bold'>A</text></svg>" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="assets/images/ahmed.jpg" type="image/jpeg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
   <!-- ═════════════════════════════════════════════
        CURSOR GLOW (desktop only)
   ═══════════════════════════════════════════════ -->
-  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="cursor-glow tw-select-none" id="cursorGlow" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════════════════════
        LOADING SCREEN
@@ -88,8 +115,8 @@
     ═══════════════════════════════════════════════ -->
     <section class="hero" id="home" aria-label="Hero - Introduction">
       <!-- Floating decoration -->
-      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--1 tw-select-none" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2 tw-select-none" aria-hidden="true"></div>
       <div class="hero-grid-lines" aria-hidden="true"></div>
 
       <div class="hero-inner container">
@@ -316,11 +343,9 @@
         </div>
 
         <div class="projects-cta scroll-reveal">
-          <!-- Update href to your actual GitHub profile once configured -->
-          <a href="#" class="btn btn--outline btn--large" id="githubProfileLink" target="_blank" rel="noopener noreferrer" aria-label="Explore more projects on GitHub">
+          <a href="https://github.com/aliwajdanbangash-spec" class="btn btn--outline btn--large" id="githubProfileLink" target="_blank" rel="noopener noreferrer" aria-label="Explore more projects on GitHub">
             EXPLORE MORE ON GITHUB ↗
           </a>
-          <p class="cta-note">⚠ Update <code>CONFIG.githubUrl</code> in script.js to activate this link.</p>
         </div>
       </div>
     </section>
@@ -346,7 +371,7 @@
     ═══════════════════════════════════════════════ -->
     <section class="contact section-pad" id="contact" aria-label="Contact">
       <!-- Purple animated orb -->
-      <div class="contact-orb" aria-hidden="true"></div>
+      <div class="contact-orb tw-select-none" aria-hidden="true"></div>
 
       <div class="container">
         <p class="section-label scroll-reveal">05 / CONTACT</p>
@@ -460,7 +485,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="modal-img-wrap">
-        <img src="" alt="" id="modalImg" class="modal-img" />
+        <img alt="" id="modalImg" class="modal-img" />
         <div class="modal-cert-placeholder" id="modalPlaceholder" aria-hidden="true">
           <svg viewBox="0 0 80 60" fill="none"><rect x="4" y="4" width="72" height="52" rx="4" stroke="#FFD60A" stroke-width="2"/><circle cx="40" cy="22" r="10" stroke="#FFD60A" stroke-width="2"/><path d="M20 48c0-11 40-11 40 0" stroke="#FFD60A" stroke-width="2"/></svg>
         </div>
@@ -469,11 +494,11 @@
         <h3 id="modalTitle" class="modal-cert-title"></h3>
         <p id="modalOrg" class="modal-cert-org"></p>
         <p id="modalDate" class="modal-cert-date"></p>
-        <a href="#" id="modalLink" class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="display:none;">VIEW CERTIFICATE ↗</a>
+        <a href="#" id="modalLink" class="btn btn--primary" target="_blank" rel="noopener noreferrer" style="display:none;" aria-label="View certificate verification page">VIEW CERTIFICATE ↗</a>
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>

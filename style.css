@@ -2,6 +2,11 @@
    AHMED ALI WAJDAN — PORTFOLIO STYLESHEET
    ═══════════════════════════════════════════════════════════════ */
 
+/* Tailwind layers (preflight disabled via tailwind.config.js).
+   Custom design styles below intentionally override utilities. */
+@tailwind components;
+@tailwind utilities;
+
 /* ─── 0. CUSTOM PROPERTIES ───────────────────────────────────── */
 :root {
   --bg:           #080808;
@@ -222,6 +227,11 @@ ul, ol { list-style: none; }
   visibility: hidden;
   pointer-events: none;
 }
+
+/* Ensure loader never sticks on mobile */
+@media (max-width: 900px) {
+  .loader { display: none !important; }
+}
 .loader-inner {
   display: flex;
   flex-direction: column;
@@ -273,8 +283,38 @@ ul, ol { list-style: none; }
   will-change: transform;
 }
 
-@media (hover: none) {
+@media (hover: none), (max-width: 900px) {
   .cursor-glow { display: none !important; }
+}
+
+/* ─── MOBILE-FIRST: Disable all heavy GPU blur effects globally on mobile ─────────────────────────────────────── */
+/* These elements cause the "dark blurred layer" covering half the screen on mobile */
+@media (max-width: 900px) {
+  .hero-orb,
+  .hero-orb--1,
+  .hero-orb--2,
+  .contact-orb,
+  .cin-glow,
+  .cin-glow--cyan,
+  .cin-glow--yellow { 
+    display: none !important; 
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  
+  /* Disable backdrop-filter on mobile - causes dark overlay rendering bugs */
+  .nav-wrapper,
+  .modal-overlay { 
+    backdrop-filter: none !important; 
+    -webkit-backdrop-filter: none !important; 
+  }
+  
+  /* Ensure hero doesn't clip content with overflow:hidden + 100dvh on mobile */
+  .hero { 
+    min-height: auto !important; 
+    overflow: visible !important; 
+  }
 }
 
 /* ─── 5. NAVIGATION ─────────────────────────────────────────────── */
@@ -447,6 +487,14 @@ ul, ol { list-style: none; }
   flex-direction: column;
   position: relative;
   overflow: hidden;
+}
+
+/* Hero mobile fix: prevent clipping and allow natural scroll */
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    overflow: visible;
+  }
 }
 
 /* Background grid */
@@ -1228,6 +1276,7 @@ ul, ol { list-style: none; }
   inset: 0;
   background: rgba(0,0,0,0.92);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -1273,6 +1322,7 @@ ul, ol { list-style: none; }
   justify-content: center;
   transition: background var(--transition), color var(--transition);
   z-index: 1;
+  flex-shrink: 0;
 }
 .modal-close:hover {
   background: rgba(255,255,255,0.12);
@@ -1338,8 +1388,8 @@ ul, ol { list-style: none; }
   top: 50%;
   right: -200px;
   transform: translateY(-50%);
-  animation: orbFloat 12s ease-in-out infinite;
   pointer-events: none;
+  will-change: transform;
 }
 
 .contact-grid {
@@ -1671,7 +1721,9 @@ ul, ol { list-style: none; }
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
-  .mobile-menu { display: flex; }
+  /* Keep the menu out of layout while closed so it never overlays the hero */
+  .mobile-menu { display: none; }
+  .mobile-menu.open { display: flex; }
   .cursor-glow { display: none !important; }
 }
 
@@ -1681,12 +1733,20 @@ ul, ol { list-style: none; }
   .section-pad { padding: clamp(3.5rem, 8vw, 6rem) 0; }
   .projects-grid { grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); }
   .certs-grid { grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); }
-  
-  /* Disable massive GPU-rendered blur orbs and cursor on mobile/touch screens */
-  .cursor-glow { display: none !important; }
-  .hero-orb { display: none !important; }
-  .contact-orb { display: none !important; }
-  .cin-glow { display: none !important; }
+
+  /* Ensure hero text and portrait are immediately visible on mobile devices */
+  .reveal-text,
+  .reveal-portrait,
+  .hero-content,
+  .hero-heading,
+  .hero-desc,
+  .hero-btns,
+  .hero-stats {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 /* Standard Mobile (600px and down) */
@@ -1733,7 +1793,7 @@ ul, ol { list-style: none; }
   .contact-form { gap: 0.85rem; }
   .contact-heading { font-size: clamp(1.8rem, 8vw, 2.4rem); word-break: break-word; }
   .contact-sub { font-size: 0.95rem; }
-  .form-group input, .form-group textarea { font-size: 16px; } /* Prevents iOS auto-zoom on input focus */
+  .form-group input, .form-group textarea { font-size: 16px; }
   #formSubmit { min-height: 48px; }
   
   .projects-cta .btn { width: 100%; min-height: 48px; justify-content: center; }

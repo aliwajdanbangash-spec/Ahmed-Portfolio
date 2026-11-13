@@ -194,28 +194,35 @@ const CONFIG = {
 
 
 /* ══════════════════════════════════════════════════════════════
-   LOADING SCREEN
-══════════════════════════════════════════════════════════════ */
+   LOADING SCREEN & HERO REVEAL
+════════════════════════════════════════════════════ */
 (function initLoader() {
   const loader = document.getElementById('loader');
-  if (!loader) return;
+  let hasRevealed = false;
 
-  const MIN_TIME = 1800; // ms — keep loader visible for at least this long
-  const start = Date.now();
+  function revealHero() {
+    if (hasRevealed) return;
+    hasRevealed = true;
+    if (loader) loader.classList.add('hidden');
+    document.querySelectorAll('.reveal-text, .reveal-portrait').forEach(el => {
+      el.classList.add('visible');
+    });
+    startCounters();
+  }
+
+  // Safety fallback: Ensure hero content always reveals within 2.5s even if window 'load' stalls
+  const fallbackTimer = setTimeout(revealHero, 2500);
 
   window.addEventListener('load', () => {
-    const elapsed = Date.now() - start;
-    const remaining = Math.max(0, MIN_TIME - elapsed);
-
-    setTimeout(() => {
-      loader.classList.add('hidden');
-      // Trigger hero animations after loader hides
-      document.querySelectorAll('.reveal-text, .reveal-portrait').forEach(el => {
-        el.classList.add('visible');
-      });
-      startCounters();
-    }, remaining);
+    clearTimeout(fallbackTimer);
+    setTimeout(revealHero, 300);
   });
+
+  // If DOM is already complete
+  if (document.readyState === 'complete') {
+    clearTimeout(fallbackTimer);
+    setTimeout(revealHero, 300);
+  }
 })();
 
 
@@ -353,9 +360,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    SCROLL-TRIGGERED REVEAL
 ══════════════════════════════════════════════════════════════ */
 (function initScrollReveal() {
+  const revealAll = () => document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
+
   if (!('IntersectionObserver' in window)) {
     // Fallback: make everything visible immediately
-    document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
+    revealAll();
     return;
   }
 
@@ -366,9 +375,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         revealObserver.unobserve(entry.target); // animate once
       }
     });
-  }, { rootMargin: '0px 0px -80px 0px', threshold: 0.1 });
+  }, { rootMargin: '0px 0px -20px 0px', threshold: 0.05 });
 
   document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+  // Safety net: reveal only elements already in view if the observer missed them,
+  // preserving the scroll animation for content further down the page.
+  window.addEventListener('load', () => setTimeout(() => {
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+    });
+  }, 1200));
 })();
 
 
@@ -415,17 +433,10 @@ function startCounters() {
 
 /* ══════════════════════════════════════════════════════════════
    BUILD PROJECTS GRID
-══════════════════════════════════════════════════════════════ */
+════════════════════════════════════════════════════ */
 (function buildProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
-
-  // Update GitHub profile CTA
-  const ghLink = document.getElementById('githubProfileLink');
-  if (ghLink && CONFIG.githubUrl) {
-    ghLink.href = CONFIG.githubUrl;
-    ghLink.nextElementSibling?.remove(); // remove warning note
-  }
 
   CONFIG.projects.forEach((project, i) => {
     const num = String(i + 1).padStart(2, '0');
@@ -439,9 +450,9 @@ function startCounters() {
       imgHTML = `<img src="${escapeAttr(project.imgSrc)}" alt="${escapeAttr(project.title)} screenshot" class="project-img" loading="lazy" />`;
     } else {
       imgHTML = `
-        <div class="project-img-placeholder" aria-label="Project placeholder — add screenshot at ${project.imgSrc || 'assets/images/project' + (i + 1) + '.jpg'}">
+        <div class="project-img-placeholder" aria-label="Project screenshot placeholder — add project image to CONFIG.projects[${i}].imgSrc">
           <span class="project-img-number">${num}</span>
-          <span>ADD SCREENSHOT</span>
+          <span>Project Screenshot</span>
         </div>`;
     }
 
@@ -451,11 +462,11 @@ function startCounters() {
     /* Links */
     const demoLink = project.demoUrl
       ? `<a href="${escapeAttr(project.demoUrl)}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="Live demo for ${escapeAttr(project.title)}">LIVE DEMO ↗</a>`
-      : `<span class="project-link" style="opacity:0.35;cursor:default;" aria-label="Live demo not yet configured">LIVE DEMO ↗</span>`;
+      : `<span class="project-link disabled" aria-label="Live demo not configured" aria-disabled="true">LIVE DEMO ↗</span>`;
 
     const repoLink = project.githubUrl
       ? `<a href="${escapeAttr(project.githubUrl)}" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for ${escapeAttr(project.title)}">GITHUB REPO ↗</a>`
-      : `<span class="project-link" style="opacity:0.35;cursor:default;" aria-label="Repository not yet configured">GITHUB REPO ↗</span>`;
+      : `<span class="project-link disabled" aria-label="Repository not configured" aria-disabled="true">GITHUB REPO ↗</span>`;
 
     card.innerHTML = `
       <div class="project-img-wrap">${imgHTML}</div>
